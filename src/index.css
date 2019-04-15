@@ -12,3 +12,57 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+body {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+.bigContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.trisContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 470px;
+  height: 470px;
+}
+
+.trisCell {
+  width: 150px;
+  height: 150px;
+  background-color: rgb(193, 244, 248);
+  border: 2px solid white;
+  font-size: 90px;
+  text-align: center;
+}
+
+.victory-announcement {
+  background-color: rgb(193, 244, 248);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-wrap: wrap;
+  width: 470px;
+  height: 470px;
+  font-size: 30px;
+  color: rgb(18, 18, 78);
+}
+
+button {
+  background-color: rgb(33, 70, 146);
+  color: white;
+  border-radius: 5px;
+  width: 190px;
+  height: 60px;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+}
+button:hover {
+  background-color: rgb(74, 121, 216);
+}
