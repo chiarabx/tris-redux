@@ -6,7 +6,7 @@ const MatchOutcomeComponent = props => {
     return <div className="victory-announcement">It's a tie!</div>;
   if (props.score != null)
     return (
-      <div className="victory-announcement" risultato={props.result}>
+      <div className="victory-announcement">
         🎉🎉🎉
         <br />
         <br />
