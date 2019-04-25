@@ -7,34 +7,32 @@ import { changeTurn } from "../Cell/redux/Cell.action";
 
 class GridComponent extends React.Component {
   checkWinner(array, el) {
-    console.log(array);
-    if (array.indexOf("") === -1) {
-      this.props.updateScore("tie");
-    }
-    if (el[0] !== "") {
-      if ((el[0] === el[1]) & (el[0] === el[2])) {
-        if (el[0] === "⭕️") this.props.updateScore("⭕️CIRCLE⭕️");
-        else this.props.updateScore("❌CROSS❌");
-      }
-    }
+    if (array.indexOf("") === -1) this.props.updateScore("tie");
+    if (el[0] === "⭕️" && el[0] === el[1] && el[0] === el[2])
+      this.props.updateScore("⭕️CIRCLE⭕️");
+    if (el[0] === "❌" && el[0] === el[1] && el[0] === el[2])
+      this.props.updateScore("❌CROSS❌");
   }
   play(arr, idx, turn) {
-    this.props.updateCells(arr, idx, turn);
-    this.props.updateTurn(turn);
-    let combos = [
-      [arr[0], arr[1], arr[2]],
-      [arr[3], arr[4], arr[5]],
-      [arr[6], arr[7], arr[8]],
-      [arr[0], arr[3], arr[6]],
-      [arr[1], arr[4], arr[7]],
-      [arr[2], arr[5], arr[8]],
-      [arr[0], arr[4], arr[8]],
-      [arr[6], arr[4], arr[2]]
-    ];
-    combos.forEach(element => {
-      console.log(element);
-      return this.checkWinner(arr, element);
-    });
+    if (arr[idx] !== "")
+      alert("This cell is already occupied! Please choose another cell.");
+    else {
+      this.props.updateCells(arr, idx, turn);
+      this.props.updateTurn(turn);
+      let combos = [
+        [arr[0], arr[1], arr[2]],
+        [arr[3], arr[4], arr[5]],
+        [arr[6], arr[7], arr[8]],
+        [arr[0], arr[3], arr[6]],
+        [arr[1], arr[4], arr[7]],
+        [arr[2], arr[5], arr[8]],
+        [arr[0], arr[4], arr[8]],
+        [arr[6], arr[4], arr[2]]
+      ];
+      combos.forEach(element => {
+        return this.checkWinner(arr, element);
+      });
+    }
   }
 
   render() {
@@ -45,13 +43,9 @@ class GridComponent extends React.Component {
             <div
               className="trisCell"
               key={index}
-              content={cell}
-              onClick={() => {
-                if (this.props.cells[index] !== "") alert("casella occupata");
-                else {
-                  this.play(this.props.cells, index, this.props.turn);
-                }
-              }}
+              onClick={() =>
+                this.play(this.props.cells, index, this.props.turn)
+              }
             >
               {cell}
             </div>

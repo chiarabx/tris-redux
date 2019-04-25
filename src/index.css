@@ -17,6 +17,11 @@ body {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
 }
+
+h1 {
+  color: rgb(18, 18, 78);
+}
+
 .bigContainer {
   display: flex;
   align-items: center;
